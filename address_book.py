@@ -5,6 +5,11 @@ from datetime import datetime, timedelta
 class AddressBook(UserDict):
     """Адресна книга для зберігання та упра вління записами контактів."""
 
+    def __str__(self):
+        lines = [str(record) for record in self.data.values()]
+        return "\n".join(lines)
+    
+    
     def add_record(self, record: Record):
         """Додає запис до адресної книги."""
         if record.name.value in self.data:
