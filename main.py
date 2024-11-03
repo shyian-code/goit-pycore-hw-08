@@ -103,8 +103,9 @@ def birthdays(args, book: AddressBook):
 
 def parse_input(user_input):
     """Розбиває введений користувачем рядок на команду та аргументи."""
-    parts = user_input.split()
-    return parts[0], parts[1:]
+    cmd, *args = user_input.split()
+    cmd = cmd.strip().lower()
+    return cmd, *args
 
 
 def main():
